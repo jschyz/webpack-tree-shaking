@@ -1,0 +1,6 @@
+{
+  "presets": [
+    ["es2015", {"modules": false}]
+    // webpack 能对ES2015模块进行静态词法分析，从而实现tree shaking
+  ]
+}
