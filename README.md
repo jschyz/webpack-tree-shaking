@@ -45,7 +45,7 @@ elem.innerHTML = `Output: ${foo()}`;
 ```
 function(module, exports, __webpack_require__) {
   "use strict";
-  
+
   /* harmony export (immutable) */ exports["a"] = foo;
   /* unused harmony export bar */
 
@@ -62,7 +62,7 @@ function(module, exports, __webpack_require__) {
 - 结论：`babel` 配置没做特殊处理，是无法实现 `tree shaking`
 
   验证：`webpack` + `babel:presets: ['es2015']` 编译后,输出 `bundle.normal.js` 中， helper 模块代码还是包含 bar 方法
-  
+
 ```
 function(module, exports, __webpack_require__) {
   "use strict";
@@ -85,11 +85,11 @@ function(module, exports, __webpack_require__) {
 - 结论：`transform-es2015-modules-commonjs` 插件影响 `tree shaking` 的实现
 
   验证：`webpack` + `babel:presets: ['es2015', {'modules': false}]` 编译后，输出 `bundle.without-optimize.js` 中， helper 模块代码已经不包含 bar 方法了
-  
+
 ```
 function(module, exports, __webpack_require__) {
   "use strict";
-  
+
   /* harmony export (immutable) */ exports["a"] = foo;
   /* unused harmony export bar */
   function foo() {
@@ -105,15 +105,15 @@ function(module, exports, __webpack_require__) {
 - 结论：通过UglifyJs简单的代码压缩，过滤掉无用 DCE(无用代码消除)
 
   验证：`webpack` + `babel:presets: ['es2015', {'modules': false}]` 编译后，经过 `UglifyJs`压缩，输出 `bundle.with-optimize.js` 中，可以看到压缩代码 helper 模块代码已经不包含 bar 方法了
-  
+
 ```
 function(t,e,n){"use strict";function r(){return"foo"}e.a=r}
 ```
 
 - 结论：只有es6模块才能使用webpack2做静态依赖解析
 
-  验证：`webpack` 入口文件修改为 `entry.common.js`，编译后输出  `bundle.common.js`，里面还是包含 bar 方法，说明除了 ES6 Module 外，无法实现 tree-shaking  
-  
+  验证：`webpack` 入口文件修改为 `entry.common.js`，编译后输出  `bundle.common.js`，里面还是包含 bar 方法，说明除了 ES6 Module 外，无法实现 tree-shaking
+
 ```
 function(module, exports) {
 
@@ -127,3 +127,7 @@ function(module, exports) {
 }
 ```
 
+### 其它阅读
+
+[如何评价 Webpack 2 新引入的 Tree-shaking 代码优化技术？](https://www.zhihu.com/question/41922432)
+[webpack2 的 tree-shaking 好用吗？](http://imweb.io/topic/58666d57b3ce6d8e3f9f99b0)
