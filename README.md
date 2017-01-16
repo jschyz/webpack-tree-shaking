@@ -139,3 +139,5 @@ function(module, exports) {
 [如何评价 Webpack 2 新引入的 Tree-shaking 代码优化技术？](https://www.zhihu.com/question/41922432)
 
 [webpack2 的 tree-shaking 好用吗？](http://imweb.io/topic/58666d57b3ce6d8e3f9f99b0)
+
+[How To Clean Up Your JavaScript Build With Tree Shaking](https://blog.engineyard.com/2016/tree-shaking)
