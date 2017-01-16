@@ -16,6 +16,13 @@ presets: [
 
 此项目只是对 `webpack tree-shaking` 技术的验证实验。
 
+### 构建
+
+```
+npm install
+npm run build
+```
+
 ### 源码文件
 helpers.js
 
@@ -130,4 +137,5 @@ function(module, exports) {
 ### 其它阅读
 
 [如何评价 Webpack 2 新引入的 Tree-shaking 代码优化技术？](https://www.zhihu.com/question/41922432)
+
 [webpack2 的 tree-shaking 好用吗？](http://imweb.io/topic/58666d57b3ce6d8e3f9f99b0)
