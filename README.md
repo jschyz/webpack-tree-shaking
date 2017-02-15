@@ -16,6 +16,10 @@ presets: [
 
 此项目只是对 `webpack tree-shaking` 技术的验证实验。
 
+介于webpack2正式发布，官方也给出 [Tree-shaking](https://medium.com/webpack/webpack-2-and-beyond-40520af9067f#9640) 的解释
+
+> Because ES6 import and export are statically analyzed, webpack can “mark” unused imports and allow minifiers such as UglifyJs, and Closure Compiler to remove the unused code. This may result in much smaller bundles! (Known as dead code elimination) – [Click here for more info!](https://github.com/webpack/webpack/tree/master/examples/harmony-unused)
+
 ### 构建
 
 ```
